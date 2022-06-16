@@ -1,12 +1,14 @@
 {
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "java.configuration.updateBuildConfiguration": "automatic",
-  "java.checkstyle.configuration": "checkstyle.xml",
-  "java.checkstyle.version": "8.39",
-  "java.format.settings.url": "formatter.xml",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
-  }
+  },
+  "java.codeGeneration.useBlocks": true,
+  "java.completion.importOrder": ["#", ""],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.checkstyle.configuration": "checkstyle.xml",
+  "java.checkstyle.version": "8.39",
+  "java.format.settings.url": "formatter.xml"
 }

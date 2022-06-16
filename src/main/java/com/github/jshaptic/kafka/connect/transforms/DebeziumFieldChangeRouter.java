@@ -1,7 +1,6 @@
 package com.github.jshaptic.kafka.connect.transforms;
 
 import java.util.Map;
-
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.ConnectRecord;
