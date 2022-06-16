@@ -1,0 +1,21 @@
+test {
+	// Rearrange test classpath, add compiled JAR instead of main classes directory
+	classpath = files(jar.archiveFile) + sourceSets.test.output + configurations.testRuntimeClasspath
+	
+	// Select testing framework
+	useTestNG()
+	
+	// Setup verbosity
+	testLogging {
+		exceptionFormat "full"
+		events "skipped", "failed"
+	}
+}
+
+// Setup jacoco task
+jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.required = true
+  }
+}

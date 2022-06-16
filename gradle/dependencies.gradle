@@ -1,0 +1,10 @@
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	// Just add dependencies
+	
+	testImplementation "org.testng:testng:7.4.0"
+}

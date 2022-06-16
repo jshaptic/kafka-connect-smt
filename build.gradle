@@ -1,0 +1,20 @@
+plugins {
+  id "java-library"
+	id "jacoco"
+	id "maven-publish"
+	id "signing"
+	id "net.nemerosa.versioning" version "2.15.1"
+	id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
+}
+
+apply from: "gradle/setup.gradle"			// setup runtime properties
+apply from: "gradle/dependencies.gradle"	// setup dependecies
+apply from: "gradle/compile.gradle"			// setup compile settings and tasks
+apply from: "gradle/testing.gradle"			// setup testing settings and tasks
+apply from: "gradle/javadoc.gradle"			// setup javadoc settings and tasks
+apply from: "gradle/packaging.gradle"		// setup packaging settings and tasks
+apply from: "gradle/publishing.gradle"		// setup publishing settings and tasks
+
+wrapper {
+	gradleVersion = "7.3.3"
+}

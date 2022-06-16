@@ -1,0 +1,56 @@
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			
+			artifact sourcesJar
+			artifact javadocJar
+			
+			// Setup proper pom file, compatible with maven central requirements https://central.sonatype.org/pages/requirements.html 
+			pom {
+				name = project.projectName
+				description = project.projectDescription
+				url = project.homeUrl
+				licenses {
+					license {
+						name = project.licenseName
+						url = project.licenseUrl
+					}
+				}
+				developers {
+					project.developers.each { dev ->
+						developer {
+							name = dev.name
+							email = dev.email
+							organization = dev.organization
+							organizationUrl = dev.organizationUrl
+						}
+					}
+				}
+				scm {
+					connection = project.scmConnection
+					developerConnection = project.scmDeveloperConnection
+					url = project.scmUrl
+				}
+				issueManagement {
+					system = project.issuesSystem
+					url = project.issuesUrl
+				}
+			}
+		}
+	}
+}
+
+signing {
+	useInMemoryPgpKeys(System.getenv("GPG_KEY"), System.getenv("GPG_PASSWORD"))
+    sign publishing.publications.mavenJava
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            username = System.getenv("MAVEN_USERNAME")
+            password = System.getenv("MAVEN_PASSWORD")
+        }
+    }
+}
