@@ -9,7 +9,11 @@ ext {
 }
 
 dependencies {
-	compileOnly "org.apache.kafka:connect-api:$kafkaVersion"
+	implementation "org.apache.kafka:connect-api:$kafkaVersion"
+  implementation "org.apache.kafka:connect-transforms:$kafkaVersion"
+  implementation "org.slf4j:slf4j-api:1.7.36"
 	
-	testImplementation "org.testng:testng:7.4.0"
+	testImplementation "org.testng:testng:7.5"
+
+  
 }
